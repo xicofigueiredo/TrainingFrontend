@@ -1,0 +1,52 @@
+<form [formGroup]="addColaboratorForm" (ngSubmit)="onSubmit()">
+
+  <div class="row d-flex flex-column align-items-center">
+    <div class="form-group col-8">
+      <label for="email">Email</label>
+      <input type="text" id="email" class="form-control" formControlName="email">
+      <div *ngIf="addColaboratorForm.errors?.['requiredEmail'] && tryToSubmit"
+           class="cross-validation-error-message alert alert-danger" role="alert">Email can't be empty
+      </div>
+      <div *ngIf="addColaboratorForm.errors?.['invalidEmail'] && (addColaboratorForm.touched || addColaboratorForm.dirty ) && tryToSubmit"
+           class="cross-validation-error-message alert alert-danger" role="alert">Invalid email
+      </div>
+    </div>
+
+    <div class="form-group col-8">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name">
+      <div *ngIf="addColaboratorForm.errors?.['requiredName'] && tryToSubmit"
+           class="cross-validation-error-message alert alert-danger" role="alert">Name can't be empty
+      </div>
+      <div *ngIf="addColaboratorForm.errors?.['invalidName'] && (addColaboratorForm.touched || addColaboratorForm.dirty ) && tryToSubmit"
+           class="cross-validation-error-message alert alert-danger" role="alert">Invalid name
+      </div>
+    </div>
+
+    <div class="form-group col-8">
+      <label for="street">Street</label>
+      <input type="text" id="street" class="form-control" formControlName="street">
+      <div *ngIf="addColaboratorForm.errors?.['requiredStreet'] && tryToSubmit"
+           class="cross-validation-error-message alert alert-danger" role="alert">Street can't be empty
+      </div>
+      <div *ngIf="addColaboratorForm.errors?.['invalidStreet'] && (addColaboratorForm.touched || addColaboratorForm.dirty ) && tryToSubmit"
+           class="cross-validation-error-message alert alert-danger" role="alert">Invalid street
+      </div>
+    </div>
+
+    <div class="form-group col-8">
+      <label for="postalCode">Postal Code</label>
+      <input type="text" id="postalCode" class="form-control" formControlName="postalCode">
+      <div *ngIf="addColaboratorForm.errors?.['requiredPostalCode'] && tryToSubmit"
+           class="cross-validation-error-message alert alert-danger" role="alert">Postal code can't be empty
+      </div>
+      <div *ngIf="addColaboratorForm.errors?.['invalidPostalCode'] && (addColaboratorForm.touched || addColaboratorForm.dirty ) && tryToSubmit"
+           class="cross-validation-error-message alert alert-danger" role="alert">Invalid postal code
+      </div>
+    </div>
+    <div class="col-8 mt-3 button-position">
+      <button class="btn btn-success">Add Colaborator</button>
+      <button class="btn btn-primary" (click)="goBack()">Go back</button>
+    </div>
+  </div>
+</form>

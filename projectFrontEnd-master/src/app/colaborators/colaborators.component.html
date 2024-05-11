@@ -1,0 +1,20 @@
+<p>colaborators works!</p>
+
+<button class="btn btn-success" (click)="showAddComponent()">Add Colaborator</button>
+
+<app-add *ngIf="addShowComponent" (closeShowComponent)="closeAddComponent($event)"></app-add>
+
+<div class="row">
+  <div class="col-1">ID</div>
+  <div class="col-3">Email</div>
+  <div class="col-3">Name</div>
+  <div class="col-3">Street</div>
+  <div class="col-2">Postal Code</div>
+</div>
+
+<div class="row">
+  <app-view *ngFor="let colaborator of colaborators"
+            class="col-12"
+            [colaborator] = "colaborator">
+  </app-view>
+</div>
