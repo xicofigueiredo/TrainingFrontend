@@ -1,0 +1,27 @@
+<div class="row d-flex flex-column align-items-center">
+  <div class="form-group col-8">
+    <label for="name">Name</label>
+<!--    <input type="text" id="name" class="form-control" disable="true" placeholder="{{ projectId.name }}">-->
+    <label type="text" id="name" class="form-control">{{ projectId.name }}</label>
+<!--    <textarea type="text" id="name" class="form-control">{{ projectId.name }}</textarea>-->
+
+  </div>
+
+  <div class="form-group col-8">
+    <label for="startDate">Start Date</label>
+<!--    <input type="text" id="startDate" class="form-control" disable="true" placeholder="{{ projectId.startDate.toString() }}">-->
+    <label type="text" id="startDate" class="form-control" >{{ projectId.startDate!.toString() }}</label>
+
+  </div>
+
+  <div class="form-group col-8">
+    <label for="endDate">End Date</label>
+<!--    <input type="text" id="endDate" class="form-control" disable="true" placeholder="{{ projectId.endDate.toString()}}">-->
+    <label type="text" id="endDate" class="form-control" >{{ projectId.endDate!.toString() }}</label>
+  </div>
+
+  <div class="col-8 mt-3 button-position">
+    <button class="btn btn-primary" (click)="goBack()">Go back</button>
+  </div>
+
+</div>

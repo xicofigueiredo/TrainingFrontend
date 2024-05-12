@@ -1,0 +1,31 @@
+<app-add *ngIf="addShowComponent" [enableOrDisable]="enableEditComponent" [projectId]="projectDetailId!" (sendMessage)="receiveMessage($event)" (closeShowComponent)="closeAddComponent($event)"></app-add>
+
+<app-details *ngIf="boolDetailsComponent" [projectId]="projectDetailId!" (closeEditShowComponent)="closeEditShowComponent($event)"></app-details>
+
+<div class="row">
+  <div class="col-2 d-flex justify-content-center">ID</div>
+  <div class="col-3 d-flex justify-content-center">Name</div>
+  <div class="col-3 d-flex justify-content-center">Start Date</div>
+  <div class="col-2 d-flex justify-content-center">End Date</div>
+  <div class="col-2 d-flex justify-content-center">Actions</div>
+</div>
+
+<div class="row">
+  <div class="col-2 d-flex justify-content-center">  </div>
+  <div class="col-3 d-flex justify-content-center"> <input type="text" class="form-control" id="filterName" placeholder="Filter by name" [(ngModel)]="filter" (input)="filterProjects()"> </div>
+  <div class="col-3 d-flex justify-content-center"> <input type="date" class="form-control" id="filterStartDate" placeholder="Filter by StartDate" [(ngModel)]="filterStartDate" (input)="filterProjects()"> </div>
+  <div class="col-2 d-flex justify-content-center"> <input type="date" class="form-control" id="filterEndDate" placeholder="Filter by EndDate" [(ngModel)]="filterEndDate" (input)="filterProjects()"> </div>
+  <div class="col-2 d-flex justify-content-center">
+    <button *ngIf="buttonAddVisible" class="btn btn-success" (click)="showAddComponent()">Add Projects</button>
+    <button *ngIf="buttonAddVisible" class="btn btn-success" (click)="cleanBoxes()">Clear</button>
+  </div>
+</div>
+
+<div class="row">
+  <app-view *ngFor="let project of filteredProjects"
+            class="col-12"
+            [project]="project"
+            (projectSelected)="projectSelected($event)"
+            (enableEditComponent)="editEnable($event)">
+  </app-view>
+</div>
